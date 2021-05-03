@@ -23,9 +23,9 @@ class Lieu {
     }
 }
 
-let molenGeek = new Lieu ("Monlenbeek", ["Bérénice", "Cactus", "Nico", "Ibi"]);
-let snack = new Lieu ("Place Saint Josse", ["chef", "assistant"]);
-let maison = new Lieu ("Saint-Josse", ["Gaetan", "Mitsu", "Celine", "Alex"]);
+let molenGeek = new Lieu ("Monlenbeek", []);
+let snack = new Lieu ("Place Saint Josse", []);
+let maison = new Lieu ("Saint-Josse", []);
 
 class Personne {
     constructor(nom,prenom,argent) {
@@ -52,14 +52,27 @@ class Bus {
             this.personnes +=1;
         }
     }
+    debarquer() {
+        this.personnes -= 1;
+    }
 }
 
 let vingtNeuf = new Bus ([], 0);
 console.log(george.argent);
 //8h30
 george.seDeplacer(vingtNeuf);
+vingtNeuf.debarquer()
+molenGeek.personnes.push(george.prenom);
 //12h45
+molenGeek.personnes.pop();
 george.seDeplacer(vingtNeuf);
+vingtNeuf.debarquer();
+snack.personnes.push(george.prenom);
+snack.personnes.pop();
+molenGeek.personnes.push(george.prenom);
 //17h10
 george.seDeplacer(vingtNeuf);
+vingtNeuf.debarquer();
+
 console.log(george.argent);
+console.log(vingtNeuf.caisse);
